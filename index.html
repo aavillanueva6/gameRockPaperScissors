@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <!-- <link rel="stylesheet" href="./assets/styles/reset.css"> -->
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon-32x32.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon/favicon-16x16.svg">
+    <link rel="manifest" href="./assets/images/favicon/site.webmanifest"><!-- manifest "site.manifest" modified from version provided by https://favicon.io/favicon-generator/ -->
+
+</head>
+<body>
+    <header>
+        <h1>Play <span id ="gameTitle">Rock, Paper, Scissors</span> against a computer!</h1>
+    </header>
+    <main>
+        <section id="userSelectionBucket">
+            <section id="userSelectionTitle">
+                <h2>Make your selection by clicking a button below.</h2>
+            </section>
+            <section id="userSelectionButtons">
+                <button id="userRockBtn">Rock</button>
+                <button id="userPaperBtn">Paper</button>
+                <button id="userScissorsBtn">Scissors</button>
+                <button id="resetBtn">Reset Game</button>
+            </section>
+        </section>
+
+        <section>
+            <section class="rpsSelection" id="userRock">🪨</section>
+            <section class="rpsSelection" id="userPaper">📜</section>
+            <section class="rpsSelection" id="userScissors">✂️</section>
+        </section>
+
+        <section>
+            <section class="rpsSelection" id="compRock">🪨</section>
+            <section class="rpsSelection" id="compPaper">📜</section>
+            <section class="rpsSelection" id="compScissors">✂️</section>
+        </section>
+
+        <section>
+            <section class="result" id="winner">WIN</section>
+            <section class="result" id="loser">LOSE</section>
+            <section class="result" id="tie">TIE</section>
+        </section>
+    </main>
+
+    <footer>
+
+<!-- load in javascript files -->
+        <script src="./assets/js/rps.js"></script>
+    </footer>
+</body>
+</html>
