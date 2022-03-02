@@ -1,11 +1,30 @@
-
+#winner, #loser, #tie #cheatMsg {
+    margin-left: auto;
+    margin-right: auto;
+}
 
 #resetBtn {
     display:none;
 }
-
+#sneakyCheatBtn {
+    opacity:0.25;
+    position:fixed;
+    bottom:0;
+    left:0;
+    height:50px;
+    width: 75px;
+}
 .rpsSelection,
 .result {
 
     display:none;
+}
+
+#choices {
+    display:flex;
+    justify-content: space-around;
+}
+#userSelectionButtons {
+    margin: 0 auto;
+    display:inline;
 }
