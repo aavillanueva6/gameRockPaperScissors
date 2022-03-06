@@ -1,18 +1,25 @@
+body {
+    position:relative;
+    min-height: 100vh;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 #winner, #loser, #tie #cheatMsg {
     margin-left: auto;
     margin-right: auto;
 }
 
-#resetBtn {
+#resetBtn, #clearStatsBtn{
     display:none;
 }
 #sneakyCheatBtn {
-    opacity:0.25;
+    opacity:0;
     position:fixed;
     bottom:0;
     left:0;
     height:50px;
     width: 75px;
+    z-index:5;
 }
 .rpsSelection,
 .result {
@@ -27,4 +34,29 @@
 #userSelectionButtons {
     margin: 0 auto;
     display:inline;
+}
+.gameDataTextBox {
+    resize:none;
+    border-radius:5px;
+    text-align: center;
+    width:70px;
+    margin:5px;
+}
+
+#statBlock {
+    margin:5px auto;
+}
+table {
+    margin:auto;
+}
+
+#footerContainer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    
+}
+
+.footerText {
+    text-align: center;
 }

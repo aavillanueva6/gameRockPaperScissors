@@ -28,6 +28,7 @@
                 <button id="userPaperBtn">Paper</button>
                 <button id="userScissorsBtn">Scissors</button>
                 <button id="resetBtn">Reset Game</button>
+                <button id="clearStatsBtn">Clear Stats</button>
             </section>
         </section>
         <section id="choices">
@@ -37,6 +38,12 @@
                 <section class="rpsSelection" id="userPaper">📜</section>
                 <section class="rpsSelection" id="userScissors">✂️</section>
             </section>
+            <section>
+                <section class="result" id="winner">You win!</section>
+                <section class="result" id="loser">You lose.</section>
+                <section class="result" id="tie">You tied.</section>
+                <section class="result" id="cheatMsg">But does it feel like a win when you get it by cheating?</section>
+            </section>
             <section class="compChoice choiceBlock">
                 <p>Computer selected:</p>
                 <section class="rpsSelection" id="compRock">🪨</section>
@@ -44,17 +51,59 @@
                 <section class="rpsSelection" id="compScissors">✂️</section>
             </section>
         </section>
-        <section>
-            <section class="result" id="winner">You win!</section>
-            <section class="result" id="loser">You lose.</section>
-            <section class="result" id="tie">You tied.</section>
-            <section class="result" id="cheatMsg">But does it feel like a win when you get it by cheating?</section>
+        <section id = 'statBlock'>
+            <table>
+                <tr>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Ties</th>
+                    <th>Total Games</th>
+                </tr>
+                <tr>
+                    <td class="gameData">
+                        <textarea
+                        class="gameDataTextBox"
+                        readonly
+                        id="gamesWon"
+                        placeholder=0
+                        aria-label="Number of games won"
+                      ></textarea>
+                    </td>
+                    <td class="gameData">
+                        <textarea
+                        class="gameDataTextBox"
+                        readonly
+                        id="gamesLost"
+                        placeholder=0
+                        aria-label="Number of games lost"
+                      ></textarea>
+                    </td>
+                    <td class="gameData">
+                        <textarea
+                        class="gameDataTextBox"
+                        readonly
+                        id="gamesTied"
+                        placeholder=0
+                        aria-label="Number of games tied"
+                      ></textarea>
+                    </td>
+                    <td class="gameData">
+                        <textarea
+                        class="gameDataTextBox"
+                        readonly
+                        id="gamesPlayed"
+                        placeholder=0
+                        aria-label="Number of games Played"
+                      ></textarea>
+                    </td>
+                </tr>
+            </table>
         </section>
         <button id="sneakyCheatBtn">Cheat</button>
     </main>
 
-    <footer>
-
+    <footer id="footerContainer">
+        <p class="footerText">&copy; 2022 ALEJANDRO VILLANUEVA</p>
 <!-- load in javascript files -->
         <script src="./assets/js/rps.js"></script>
     </footer>

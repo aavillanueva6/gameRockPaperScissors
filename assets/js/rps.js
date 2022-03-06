@@ -1,6 +1,10 @@
 //Declaring global variables
 var userChoice;
 var compChoice; 
+let winCount = 0;
+let loseCount = 0;
+let tieCount = 0;
+let gameCount = 0;
 
 //Defining functions
 // styleReset hides all items that can be unhidden by any of the other functions / buttons
@@ -16,6 +20,19 @@ const styleReset = () => {
     document.getElementById("winner").style.display='none';
     document.getElementById("cheatMsg").style.display='none';
     document.getElementById("resetBtn").style.display='none';
+}
+
+// clearStats resets the count of wins, losses, ties and total games to zero, and hides the stat block
+const clearStats = () => {
+    winCount = 0;
+    loseCount = 0;
+    tieCount = 0;
+    gameCount = 0;
+    document.getElementById("clearStatsBtn").style.display='none';
+    document.getElementById("gamesWon").value = 0;
+    document.getElementById("gamesLost").value = 0;
+    document.getElementById("gamesTied").value = 0;
+    document.getElementById("gamesPlayed").value = 0;
 }
 
 // getResult checks the user choice against the computer choice and determines the result
@@ -65,12 +82,31 @@ const getResult = () => {
 // winResult, loseResult, tieResult are all called from the getResult function.  They print the result to the window.  first revision of the code had these in the getResult function, but then to change the output/styling that is applied, I had to change it in three places for each result.  By breaking it out, they only need to get changed once per result.
 const winResult = () => {
     document.getElementById("winner").style.display='block';
+    winCount++;
+    gameCount++;
+    console.log(`wins = ${winCount}`)
+    console.log(`games = ${gameCount}`)
+    document.getElementById("gamesWon").value = winCount;
+    document.getElementById("gamesPlayed").value = gameCount;
+
 }
 const loseResult = () => {
     document.getElementById("loser").style.display='block';
+    loseCount++;
+    gameCount++;
+    console.log(`losses = ${loseCount}`)
+    console.log(`games = ${gameCount}`)
+    document.getElementById("gamesLost").value = loseCount;
+    document.getElementById("gamesPlayed").value = gameCount;
 }
 const tieResult = () => {
     document.getElementById("tie").style.display='block';
+    tieCount++;
+    gameCount++;
+    console.log(`ties = ${tieCount}`)
+    console.log(`games = ${gameCount}`)
+    document.getElementById("gamesTied").value = tieCount;
+    document.getElementById("gamesPlayed").value = gameCount;
 }
 
 // getComputerChoice randomly assigns a choice to the compChoice variable.  It uses Math.floor(Math.random()) as a way to define a random number and keys the choice off of the random number that is picked.
@@ -118,6 +154,7 @@ const cheatBtnFunction = () => {
         }
     getResult();
     document.getElementById("resetBtn").style.display='inline';
+    document.getElementById("clearStatsBtn").style.display='inline';
     document.getElementById("cheatMsg").style.display='block';
     console.log('userChoice:');
     console.log(userChoice);
@@ -132,6 +169,7 @@ const rockBtnFunction = () => {
     getComputerChoice();
     getResult();
     document.getElementById("resetBtn").style.display='inline';
+    document.getElementById("clearStatsBtn").style.display='inline';
     console.log('userChoice:');
     console.log(userChoice);
     console.log('compChoice:');
@@ -143,6 +181,7 @@ const paperBtnFunction = () => {
     document.getElementById("userPaper").style.display='inline';
     getComputerChoice();
     document.getElementById("resetBtn").style.display='inline';
+    document.getElementById("clearStatsBtn").style.display='inline';
     console.log('userChoice:');
     console.log(userChoice);
     console.log('compChoice:');
@@ -155,6 +194,7 @@ const scissorsBtnFunction = () => {
     document.getElementById("userScissors").style.display='inline';
     getComputerChoice();
     document.getElementById("resetBtn").style.display='inline';
+    document.getElementById("clearStatsBtn").style.display='inline';
     console.log('userChoice:');
     console.log(userChoice);
     console.log('compChoice:');
@@ -195,4 +235,8 @@ document.getElementById("userScissorsBtn").addEventListener("click",function(){
 document.getElementById("sneakyCheatBtn").addEventListener("click",function(){
     styleReset();
     setTimeout(cheatBtnFunction,500)
+});
+document.getElementById("clearStatsBtn").addEventListener("click",function(){
+    styleReset();
+    clearStats();
 });
