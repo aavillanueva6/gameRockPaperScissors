@@ -15,43 +15,52 @@
 
 </head>
 <body>
-    <header>
+    <header class="titleText">
         <h1>Play <span id ="gameTitle">Rock, Paper, Scissors</span> against a computer!</h1>
     </header>
     <main>
         <section id="userSelectionBucket">
-            <section id="userSelectionTitle">
-                <h2>Make your selection by clicking a button below.</h2>
+            <section class="titleText" id="userSelectionTitle">
+                <h2>Make your selection</span> by clicking a button below.</h2>
             </section>
             <section class="blink" id="userSelectionButtons">
-                <button id="userRockBtn">Rock</button>
-                <button id="userPaperBtn">Paper</button>
-                <button id="userScissorsBtn">Scissors</button>
-                <button id="resetBtn">Reset Game</button>
-                <button id="clearStatsBtn">Clear Stats</button>
+                <button class="actionButtons" id="userRockBtn">Rock</button>
+                <button class="actionButtons"id="userPaperBtn">Paper</button>
+                <button class="actionButtons"id="userScissorsBtn">Scissors</button>
+            </section>
+            <section class="buttonContainer">
+                <button class="actionButtons"id="resetBtn">Reset Game</button>
+
             </section>
         </section>
         <section id="choices">
             <section class="userChoice choiceBlock">
-                <p>User selected:</p>
-                <section class="rpsSelection" id="userRock">🪨</section>
-                <section class="rpsSelection" id="userPaper">📜</section>
-                <section class="rpsSelection" id="userScissors">✂️</section>
+                <p class="sselectionText" >User selected:</p>
+                <div class="choiceText">
+                    <section class="rpsSelection" id="userRock">🪨</section>
+                    <section class="rpsSelection" id="userPaper">📜</section>
+                    <section class="rpsSelection" id="userScissors">✂️</section>
+                </div>
             </section>
-            <section>
+            <section id="resultText">
                 <section class="result" id="winner">You win!</section>
                 <section class="result" id="loser">You lose.</section>
                 <section class="result" id="tie">You tied.</section>
                 <section class="result" id="cheatMsg">But does it feel like a win when you get it by cheating?</section>
             </section>
             <section class="compChoice choiceBlock">
-                <p>Computer selected:</p>
-                <section class="rpsSelection" id="compRock">🪨</section>
-                <section class="rpsSelection" id="compPaper">📜</section>
-                <section class="rpsSelection" id="compScissors">✂️</section>
+                <p class="selectionText" >Computer selected:</p>
+                <div class="choiceText">
+                    <section class="rpsSelection" id="compRock">🪨</section>
+                    <section class="rpsSelection" id="compPaper">📜</section>
+                    <section class="rpsSelection" id="compScissors">✂️</section>
+                </div>  
             </section>
         </section>
         <section id = 'statBlock'>
+            <div class="buttonContainer">
+                <button class="actionButtons"id="clearStatsBtn">Clear Stats</button>
+            </div>
             <table>
                 <tr>
                     <th>Wins</th>

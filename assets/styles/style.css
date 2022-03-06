@@ -21,19 +21,32 @@ body {
     width: 75px;
     z-index:5;
 }
-.rpsSelection,
+.titleText{
+    text-align: center;
+}
+.rpsSelection{
+    display:none;
+    font-size:1.5em;
+}
 .result {
 
     display:none;
 }
-
+.choiceBlock {
+    width:150px;
+}
+#resultText{
+    width:200px;
+}
 #choices {
     display:flex;
     justify-content: space-around;
+    min-height: 100px;
 }
 #userSelectionButtons {
-    margin: 0 auto;
-    display:inline;
+    margin: 5px auto;
+    display:flex;
+    justify-content: space-around;
 }
 .gameDataTextBox {
     resize:none;
@@ -42,6 +55,11 @@ body {
     width:70px;
     margin:5px;
 }
+.buttonContainer {
+    display:block;
+    margin: 5px auto;
+    height:31px;
+}
 
 #statBlock {
     margin:5px auto;
@@ -49,6 +67,23 @@ body {
 table {
     margin:auto;
 }
+/* next two styles are a test to work on the animation that I am trying to gee to work. */
+.testClass {
+    animation-name: spin;
+    animation-duration: 10s;
+    animation-iteration-count: 1;
+    animation-delay: 0s;
+}
+@keyframes spin {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+
 
 #footerContainer {
     position: absolute;

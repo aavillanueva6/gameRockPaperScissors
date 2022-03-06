@@ -115,21 +115,18 @@ const getComputerChoice = () => {
     console.log(randNum);
     if (randNum === 0) {
         console.log('Rock')
-        document.getElementById("compRock").style.fontSize='larger';
         document.getElementById("compRock").style.display='inline';
         compChoice='Rock'
         // return 'Rock'
         
     } else if (randNum === 1) {
         console.log('Paper')
-        document.getElementById("compPaper").style.fontSize='larger';
         document.getElementById("compPaper").style.display='inline';
         compChoice='Paper'
         // return 'Paper'
         
     } else {
         console.log('Scissors')
-        document.getElementById("compScissors").style.fontSize='larger';
         document.getElementById("compScissors").style.display='inline';
         compChoice='Scissors'
         // return 'Scissors'
@@ -219,24 +216,34 @@ document.getElementById("resetBtn").addEventListener("click",function(){
 
 document.getElementById("userRockBtn").addEventListener("click",function(){
     styleReset();
-    setTimeout(rockBtnFunction,500)
+    // sleep(1000);
+    rockBtnFunction()
+    // setTimeout(rockBtnFunction,500)
 });
 
 document.getElementById("userPaperBtn").addEventListener("click",function(){
     styleReset();
-    setTimeout(paperBtnFunction,500)
+    setTimeout(paperBtnFunction,0)
 });
 
 document.getElementById("userScissorsBtn").addEventListener("click",function(){
     styleReset();
-    setTimeout(scissorsBtnFunction,500)
+    setTimeout(scissorsBtnFunction,0)
 });
 
 document.getElementById("sneakyCheatBtn").addEventListener("click",function(){
     styleReset();
-    setTimeout(cheatBtnFunction,500)
+    setTimeout(cheatBtnFunction,0)
 });
 document.getElementById("clearStatsBtn").addEventListener("click",function(){
     styleReset();
     clearStats();
 });
+
+// function sleep(milliseconds) {
+//     const date = Date.now();
+//     let currentDate = null;
+//     do {
+//       currentDate = Date.now();
+//     } while (currentDate - date < milliseconds);
+//   }
