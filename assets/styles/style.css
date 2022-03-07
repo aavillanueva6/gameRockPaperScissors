@@ -3,13 +3,26 @@ body {
     min-height: 100vh;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
+#cheatMsg{
+    display:none;
+}
 #winner, #loser, #tie #cheatMsg {
     margin-left: auto;
     margin-right: auto;
 }
+.actionButtons {
+    flex: 0 0 91px;
+}
+#resetButtonContainer {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#resetBtn {
+    display: none;
 
-#resetBtn, #clearStatsBtn{
+} 
+#clearStatsBtn{
     display:none;
 }
 #sneakyCheatBtn {
@@ -29,7 +42,6 @@ body {
     font-size:1.5em;
 }
 .result {
-
     display:none;
 }
 .choiceBlock {
@@ -37,11 +49,14 @@ body {
 }
 #resultText{
     width:200px;
+    text-align: center;
+    margin:0 5px;
 }
 #choices {
     display:flex;
     justify-content: space-around;
-    min-height: 100px;
+    min-height: 105px;
+    text-align:center;
 }
 #userSelectionButtons {
     margin: 5px auto;
@@ -63,6 +78,8 @@ body {
 
 #statBlock {
     margin:5px auto;
+    display:flex;
+    flex-direction: column;
 }
 table {
     margin:auto;

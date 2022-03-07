@@ -20,8 +20,7 @@ The deployed site is hosted on github pages at the following link:
 https://aavillanueva6.github.io/gameRockPaperScissors/
 
 ## Known Bugs
-* while the timout is occuring for one button, other buttons are able to be clicked.  This can result in two results being displayed (click rock button then quickly click paper button and both buttons run their assigned functions and all choices and results appear.)
-    * The site should not allow for a second button to be pressed while one is still running.
+* none
 
 ## Unimplemented Features still wanted
 

@@ -24,18 +24,17 @@
                 <h2>Make your selection</span> by clicking a button below.</h2>
             </section>
             <section class="blink" id="userSelectionButtons">
-                <button class="actionButtons" id="userRockBtn">Rock</button>
-                <button class="actionButtons"id="userPaperBtn">Paper</button>
-                <button class="actionButtons"id="userScissorsBtn">Scissors</button>
+                <button class="actionButtons allButtons" id="userRockBtn">Rock</button>
+                <button class="actionButtons allButtons"id="userPaperBtn">Paper</button>
+                <button class="actionButtons allButtons"id="userScissorsBtn">Scissors</button>
             </section>
-            <section class="buttonContainer">
-                <button class="actionButtons"id="resetBtn">Reset Game</button>
-
+            <section class="buttonContainer" id="resetButtonContainer">
+                <button class="actionButtons allButtons"id="resetBtn">Reset Game</button>
             </section>
         </section>
         <section id="choices">
             <section class="userChoice choiceBlock">
-                <p class="sselectionText" >User selected:</p>
+                <p class="selectionText" >User</br>selected:</p>
                 <div class="choiceText">
                     <section class="rpsSelection" id="userRock">🪨</section>
                     <section class="rpsSelection" id="userPaper">📜</section>
@@ -46,10 +45,10 @@
                 <section class="result" id="winner">You win!</section>
                 <section class="result" id="loser">You lose.</section>
                 <section class="result" id="tie">You tied.</section>
-                <section class="result" id="cheatMsg">But does it feel like a win when you get it by cheating?</section>
+                <section class="none" id="cheatMsg">But does it feel like a win when you get it by cheating?</section>
             </section>
             <section class="compChoice choiceBlock">
-                <p class="selectionText" >Computer selected:</p>
+                <p class="selectionText" >Computer</br>selected:</p>
                 <div class="choiceText">
                     <section class="rpsSelection" id="compRock">🪨</section>
                     <section class="rpsSelection" id="compPaper">📜</section>
@@ -59,7 +58,7 @@
         </section>
         <section id = 'statBlock'>
             <div class="buttonContainer">
-                <button class="actionButtons"id="clearStatsBtn">Clear Stats</button>
+                <button class="actionButtons allButtons"id="clearStatsBtn">Clear Stats</button>
             </div>
             <table>
                 <tr>
@@ -108,7 +107,7 @@
                 </tr>
             </table>
         </section>
-        <button id="sneakyCheatBtn">Cheat</button>
+        <button id="sneakyCheatBtn" class="allButtons">Cheat</button>
     </main>
 
     <footer id="footerContainer">

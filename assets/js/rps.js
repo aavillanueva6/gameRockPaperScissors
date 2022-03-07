@@ -6,9 +6,18 @@ let loseCount = 0;
 let tieCount = 0;
 let gameCount = 0;
 
+// These variables are used to make calling IDs easier later
+let rockBtn = document.getElementById("userRockBtn");
+let paperBtn = document.getElementById("userPaperBtn");
+let scissorsBtn = document.getElementById("userScissorsBtn");
+let cheatBtn = document.getElementById("sneakyCheatBtn");
+let resetBtn = document.getElementById("resetBtn");
+let clearStatsBtn = document.getElementById("clearStatsBtn");
+
+
 //Defining functions
 // styleReset hides all items that can be unhidden by any of the other functions / buttons
-const styleReset = () => {
+function styleReset () {
     document.getElementById("compRock").style.display='none';
     document.getElementById("compPaper").style.display='none';
     document.getElementById("compScissors").style.display='none';
@@ -18,12 +27,12 @@ const styleReset = () => {
     document.getElementById("tie").style.display='none';
     document.getElementById("loser").style.display='none';
     document.getElementById("winner").style.display='none';
-    document.getElementById("cheatMsg").style.display='none';
+    
     document.getElementById("resetBtn").style.display='none';
 }
 
 // clearStats resets the count of wins, losses, ties and total games to zero, and hides the stat block
-const clearStats = () => {
+function clearStats () {
     winCount = 0;
     loseCount = 0;
     tieCount = 0;
@@ -33,10 +42,11 @@ const clearStats = () => {
     document.getElementById("gamesLost").value = 0;
     document.getElementById("gamesTied").value = 0;
     document.getElementById("gamesPlayed").value = 0;
+    document.getElementById("cheatMsg").style.display='none';
 }
 
 // getResult checks the user choice against the computer choice and determines the result
-const getResult = () => {
+function getResult () {
     if (userChoice === 'Rock') {
         if (compChoice === 'Rock') {
             // tie
@@ -79,8 +89,30 @@ const getResult = () => {
     }
 }
 
+/**
+ * Disables buttons
+ */
+function disableButtons () {
+    rockBtn.disabled=true;
+    paperBtn.disabled=true;
+    scissorsBtn.disabled=true;
+    cheatBtn.disabled=true;
+    resetBtn.disabled=true;
+    clearStatsBtn.disabled=true;
+}
+
+function enableButtons () {
+    rockBtn.disabled=false;
+    paperBtn.disabled=false;
+    scissorsBtn.disabled=false;
+    cheatBtn.disabled=false;
+    resetBtn.disabled=false;
+    clearStatsBtn.disabled=false;
+}
+
+
 // winResult, loseResult, tieResult are all called from the getResult function.  They print the result to the window.  first revision of the code had these in the getResult function, but then to change the output/styling that is applied, I had to change it in three places for each result.  By breaking it out, they only need to get changed once per result.
-const winResult = () => {
+function winResult () {
     document.getElementById("winner").style.display='block';
     winCount++;
     gameCount++;
@@ -90,7 +122,7 @@ const winResult = () => {
     document.getElementById("gamesPlayed").value = gameCount;
 
 }
-const loseResult = () => {
+function loseResult () {
     document.getElementById("loser").style.display='block';
     loseCount++;
     gameCount++;
@@ -99,7 +131,7 @@ const loseResult = () => {
     document.getElementById("gamesLost").value = loseCount;
     document.getElementById("gamesPlayed").value = gameCount;
 }
-const tieResult = () => {
+function tieResult () {
     document.getElementById("tie").style.display='block';
     tieCount++;
     gameCount++;
@@ -110,7 +142,7 @@ const tieResult = () => {
 }
 
 // getComputerChoice randomly assigns a choice to the compChoice variable.  It uses Math.floor(Math.random()) as a way to define a random number and keys the choice off of the random number that is picked.
-const getComputerChoice = () => {
+function getComputerChoice () {
     var randNum = Math.floor(Math.random()*3);
     console.log(randNum);
     if (randNum === 0) {
@@ -135,7 +167,7 @@ const getComputerChoice = () => {
 }
 
 // provides an automatic win to the user.  First it calls the getComptureChoice function to determine the computer choice.  Then, it determines what the user needs in order to win, and makes that choice for the user.  It also displays the resetBtn in order to provide the ability for the user to reinitialize the game.
-const cheatBtnFunction = () => {
+function cheatBtnFunction () {
     getComputerChoice();
         if (compChoice==='Rock') {
             userChoice='Paper'
@@ -157,10 +189,11 @@ const cheatBtnFunction = () => {
     console.log(userChoice);
     console.log('compChoice:');
     console.log(compChoice);
+    enableButtons();
 }
 
 // the rockBtnFunction, paperBtnFunction, and scissorsBtnFunction have similar functionality for each.  First they define the user choice, and display that choice.  Then the run the getComputerChoice function and determine the result by running the getResult function. They also display the resetBtn in order to provide the ability for the user to reinitialize the game.
-const rockBtnFunction = () => {
+function rockBtnFunction () {
     userChoice='Rock';
     document.getElementById("userRock").style.display='inline';
     getComputerChoice();
@@ -171,9 +204,10 @@ const rockBtnFunction = () => {
     console.log(userChoice);
     console.log('compChoice:');
     console.log(compChoice);
+    enableButtons();
 }
 
-const paperBtnFunction = () => {
+function paperBtnFunction () {
     userChoice='Paper';
     document.getElementById("userPaper").style.display='inline';
     getComputerChoice();
@@ -184,9 +218,10 @@ const paperBtnFunction = () => {
     console.log('compChoice:');
     console.log(compChoice);
     getResult();
+    enableButtons();
 }
 
-const scissorsBtnFunction = () => {
+function scissorsBtnFunction () {
     userChoice='Scissors';
     document.getElementById("userScissors").style.display='inline';
     getComputerChoice();
@@ -197,6 +232,7 @@ const scissorsBtnFunction = () => {
     console.log('compChoice:');
     console.log(compChoice);
     getResult();
+    enableButtons();
 }
 
 //Add functionality for button clicks
@@ -214,36 +250,40 @@ document.getElementById("resetBtn").addEventListener("click",function(){
     styleReset();
 });
 
-document.getElementById("userRockBtn").addEventListener("click",function(){
+rockBtn.addEventListener("click",function(){
+    disableButtons();
     styleReset();
+    setTimeout(rockBtnFunction,500)
     // sleep(1000);
-    rockBtnFunction()
-    // setTimeout(rockBtnFunction,500)
+
 });
 
-document.getElementById("userPaperBtn").addEventListener("click",function(){
+paperBtn.addEventListener("click",function(){
+    disableButtons();
     styleReset();
-    setTimeout(paperBtnFunction,0)
+    setTimeout(paperBtnFunction,500)
 });
 
-document.getElementById("userScissorsBtn").addEventListener("click",function(){
+scissorsBtn.addEventListener("click",function(){
+    disableButtons();
     styleReset();
-    setTimeout(scissorsBtnFunction,0)
+    setTimeout(scissorsBtnFunction,500)
 });
 
-document.getElementById("sneakyCheatBtn").addEventListener("click",function(){
+cheatBtn.addEventListener("click",function(){
+    disableButtons();
     styleReset();
-    setTimeout(cheatBtnFunction,0)
+    setTimeout(cheatBtnFunction,500)
 });
 document.getElementById("clearStatsBtn").addEventListener("click",function(){
     styleReset();
     clearStats();
 });
 
-// function sleep(milliseconds) {
-//     const date = Date.now();
-//     let currentDate = null;
-//     do {
-//       currentDate = Date.now();
-//     } while (currentDate - date < milliseconds);
-//   }
+function sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+      currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+  }
