@@ -24,9 +24,9 @@
                 <h2>Make your selection</span> by clicking a button below.</h2>
             </section>
             <section class="blink" id="userSelectionButtons">
-                <button class="actionButtons allButtons" id="userRockBtn">Rock</button>
-                <button class="actionButtons allButtons"id="userPaperBtn">Paper</button>
-                <button class="actionButtons allButtons"id="userScissorsBtn">Scissors</button>
+                <button class="actionButtons allButtons" id="userRockBtn">🪨</button>
+                <button class="actionButtons allButtons"id="userPaperBtn">📜</button>
+                <button class="actionButtons allButtons"id="userScissorsBtn">✂️</button>
             </section>
             <section class="buttonContainer" id="resetButtonContainer">
                 <button class="actionButtons allButtons"id="resetBtn">Reset Game</button>
@@ -35,10 +35,13 @@
         <section id="choices">
             <section class="userChoice choiceBlock">
                 <p class="selectionText" >User</br>selected:</p>
-                <div class="choiceText">
+                <div class="choiceText" id="userChoiceText">
                     <section class="rpsSelection" id="userRock">🪨</section>
                     <section class="rpsSelection" id="userPaper">📜</section>
                     <section class="rpsSelection" id="userScissors">✂️</section>
+                    <section class="rpsSelection" id="userRockRoll">🪨</section>
+                    <section class="rpsSelection" id="userPaperRoll">📜</section>
+                    <section class="rpsSelection" id="userScissorsRoll">✂️</section>
                 </div>
             </section>
             <section id="resultText">
@@ -49,10 +52,13 @@
             </section>
             <section class="compChoice choiceBlock">
                 <p class="selectionText" >Computer</br>selected:</p>
-                <div class="choiceText">
+                <div class="choiceText" id="compChoiceText">
                     <section class="rpsSelection" id="compRock">🪨</section>
                     <section class="rpsSelection" id="compPaper">📜</section>
                     <section class="rpsSelection" id="compScissors">✂️</section>
+                    <section class="rpsSelection" id="compRockRoll">🪨</section>
+                    <section class="rpsSelection" id="compPaperRoll">📜</section>
+                    <section class="rpsSelection" id="compScissorsRoll">✂️</section>
                 </div>  
             </section>
         </section>

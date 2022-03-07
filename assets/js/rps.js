@@ -18,16 +18,15 @@ let clearStatsBtn = document.getElementById("clearStatsBtn");
 //Defining functions
 // styleReset hides all items that can be unhidden by any of the other functions / buttons
 function styleReset () {
-    document.getElementById("compRock").style.display='none';
-    document.getElementById("compPaper").style.display='none';
-    document.getElementById("compScissors").style.display='none';
-    document.getElementById("userRock").style.display='none';
-    document.getElementById("userPaper").style.display='none';
-    document.getElementById("userScissors").style.display='none';
+    document.getElementById("compRock").style.opacity=0;
+    document.getElementById("compPaper").style.opacity=0;
+    document.getElementById("compScissors").style.opacity=0;
+    document.getElementById("userRock").style.opacity=0;
+    document.getElementById("userPaper").style.opacity=0;
+    document.getElementById("userScissors").style.opacity=0;
     document.getElementById("tie").style.display='none';
     document.getElementById("loser").style.display='none';
     document.getElementById("winner").style.display='none';
-    
     document.getElementById("resetBtn").style.display='none';
 }
 
@@ -47,40 +46,40 @@ function clearStats () {
 
 // getResult checks the user choice against the computer choice and determines the result
 function getResult () {
-    if (userChoice === 'Rock') {
-        if (compChoice === 'Rock') {
+    if (userChoice === 'userRock') {
+        if (compChoice === 'compRock') {
             // tie
             tieResult();
-        } else if (compChoice === 'Paper') {
+        } else if (compChoice === 'compPaper') {
             // lose
             loseResult();
-        } else if (compChoice === 'Scissors') {
+        } else if (compChoice === 'compScissors') {
             // win
             winResult();
         } else {
             console.log('error in getResult')
         }
-    } else if (userChoice === 'Paper') {
-        if (compChoice === 'Rock') {
+    } else if (userChoice === 'userPaper') {
+        if (compChoice === 'compRock') {
             // win
             winResult();
-        } else if (compChoice === 'Paper') {
+        } else if (compChoice === 'compPaper') {
             // tie
             tieResult();
-        } else if (compChoice === 'Scissors') {
+        } else if (compChoice === 'compScissors') {
             // lose
             loseResult();
         } else {
             console.log('error in getResult')
         }
-    } else if (userChoice === 'Scissors') {
-        if (compChoice === 'Rock') {
+    } else if (userChoice === 'userScissors') {
+        if (compChoice === 'compRock') {
             // lose
             loseResult();
-        } else if (compChoice === 'Paper') {
+        } else if (compChoice === 'compPaper') {
             // win
             winResult();
-        } else if (compChoice === 'Scissors') {
+        } else if (compChoice === 'compScissors') {
             // tie
             tieResult();
         } else {
@@ -108,6 +107,31 @@ function enableButtons () {
     cheatBtn.disabled=false;
     resetBtn.disabled=false;
     clearStatsBtn.disabled=false;
+}
+
+function rollIcons () {
+    document.getElementById("userRockRoll").classList.add("rollIconRock")
+    document.getElementById("userPaperRoll").classList.add("rollIconPaper")
+    document.getElementById("userScissorsRoll").classList.add("rollIconScissors")
+    document.getElementById("compRockRoll").classList.add("rollIconRock")
+    document.getElementById("compPaperRoll").classList.add("rollIconPaper")
+    document.getElementById("compScissorsRoll").classList.add("rollIconScissors")
+    document.getElementById("userChoiceText").classList.add("bounceBox")
+    document.getElementById("compChoiceText").classList.add("bounceBox")
+    document.getElementById(userChoice).classList.add("rollIconChoice")
+    document.getElementById(compChoice).classList.add("rollIconChoice")
+}
+function resetRoll () {
+    document.getElementById("userRockRoll").classList.remove("rollIconRock")
+    document.getElementById("userPaperRoll").classList.remove("rollIconPaper")
+    document.getElementById("userScissorsRoll").classList.remove("rollIconScissors")
+    document.getElementById("compRockRoll").classList.remove("rollIconRock")
+    document.getElementById("compPaperRoll").classList.remove("rollIconPaper")
+    document.getElementById("compScissorsRoll").classList.remove("rollIconScissors")
+    document.getElementById("userChoiceText").classList.remove("bounceBox")
+    document.getElementById("compChoiceText").classList.remove("bounceBox")
+    document.getElementById(userChoice).classList.remove("rollIconChoice")
+    document.getElementById(compChoice).classList.remove("rollIconChoice")
 }
 
 
@@ -147,41 +171,20 @@ function getComputerChoice () {
     console.log(randNum);
     if (randNum === 0) {
         console.log('Rock')
-        document.getElementById("compRock").style.display='inline';
-        compChoice='Rock'
-        // return 'Rock'
-        
+        compChoice='compRock'
     } else if (randNum === 1) {
         console.log('Paper')
-        document.getElementById("compPaper").style.display='inline';
-        compChoice='Paper'
-        // return 'Paper'
-        
+        compChoice='compPaper'
     } else {
         console.log('Scissors')
-        document.getElementById("compScissors").style.display='inline';
-        compChoice='Scissors'
-        // return 'Scissors'
-        
+        compChoice='compScissors'
     }
 }
 
 // provides an automatic win to the user.  First it calls the getComptureChoice function to determine the computer choice.  Then, it determines what the user needs in order to win, and makes that choice for the user.  It also displays the resetBtn in order to provide the ability for the user to reinitialize the game.
 function cheatBtnFunction () {
-    getComputerChoice();
-        if (compChoice==='Rock') {
-            userChoice='Paper'
-            document.getElementById("userPaper").style.display='inline';
-        } else if (compChoice ==='Paper') {
-            userChoice='Scissors'
-            document.getElementById("userScissors").style.display='inline';
-        } else if (compChoice === 'Scissors') {
-            userChoice='Rock'
-            document.getElementById("userRock").style.display='inline';
-        } else {
-            console.log('error in cheat button')
-        }
-    getResult();
+    document.getElementById(userChoice).style.opacity=1;
+    document.getElementById(compChoice).style.opacity=1;
     document.getElementById("resetBtn").style.display='inline';
     document.getElementById("clearStatsBtn").style.display='inline';
     document.getElementById("cheatMsg").style.display='block';
@@ -189,28 +192,29 @@ function cheatBtnFunction () {
     console.log(userChoice);
     console.log('compChoice:');
     console.log(compChoice);
+    getResult();
     enableButtons();
+    resetRoll();
 }
 
 // the rockBtnFunction, paperBtnFunction, and scissorsBtnFunction have similar functionality for each.  First they define the user choice, and display that choice.  Then the run the getComputerChoice function and determine the result by running the getResult function. They also display the resetBtn in order to provide the ability for the user to reinitialize the game.
 function rockBtnFunction () {
-    userChoice='Rock';
-    document.getElementById("userRock").style.display='inline';
-    getComputerChoice();
-    getResult();
+    document.getElementById(userChoice).style.opacity=1;
+    document.getElementById(compChoice).style.opacity=1;
     document.getElementById("resetBtn").style.display='inline';
     document.getElementById("clearStatsBtn").style.display='inline';
     console.log('userChoice:');
     console.log(userChoice);
     console.log('compChoice:');
     console.log(compChoice);
+    getResult();
     enableButtons();
+    resetRoll();
 }
 
 function paperBtnFunction () {
-    userChoice='Paper';
-    document.getElementById("userPaper").style.display='inline';
-    getComputerChoice();
+    document.getElementById(userChoice).style.opacity=1;
+    document.getElementById(compChoice).style.opacity=1;
     document.getElementById("resetBtn").style.display='inline';
     document.getElementById("clearStatsBtn").style.display='inline';
     console.log('userChoice:');
@@ -219,12 +223,12 @@ function paperBtnFunction () {
     console.log(compChoice);
     getResult();
     enableButtons();
+    resetRoll();
 }
 
 function scissorsBtnFunction () {
-    userChoice='Scissors';
-    document.getElementById("userScissors").style.display='inline';
-    getComputerChoice();
+    document.getElementById(userChoice).style.opacity=1;
+    document.getElementById(compChoice).style.opacity=1;
     document.getElementById("resetBtn").style.display='inline';
     document.getElementById("clearStatsBtn").style.display='inline';
     console.log('userChoice:');
@@ -233,17 +237,10 @@ function scissorsBtnFunction () {
     console.log(compChoice);
     getResult();
     enableButtons();
+    resetRoll();
 }
 
 //Add functionality for button clicks
-
-/* 
-current functionality is to immediately reset the game. It then does a 500ms delay before calling in the function listed in the setTimeout method.
-
-Additional desired functionality is to use the 500ms time to animate the appearance of the user choice and the computer choice.  maybe just use a fade in transition for the user choice.  For the computer choice, I want to "roll" through the options and have it "land" on the computer choice.
-I have heard about setting classes in JS, and will try to use that to execute these animations.
-
-*/
 
 //reinitializes the game upon resetBtn click
 document.getElementById("resetBtn").addEventListener("click",function(){
@@ -253,37 +250,47 @@ document.getElementById("resetBtn").addEventListener("click",function(){
 rockBtn.addEventListener("click",function(){
     disableButtons();
     styleReset();
-    setTimeout(rockBtnFunction,500)
-    // sleep(1000);
-
+    getComputerChoice()
+    userChoice='userRock'
+    rollIcons();
+    setTimeout(scissorsBtnFunction,2000)
 });
 
 paperBtn.addEventListener("click",function(){
     disableButtons();
     styleReset();
-    setTimeout(paperBtnFunction,500)
+    getComputerChoice()
+    userChoice='userPaper'
+    rollIcons();
+    setTimeout(scissorsBtnFunction,2000)
 });
 
 scissorsBtn.addEventListener("click",function(){
     disableButtons();
     styleReset();
-    setTimeout(scissorsBtnFunction,500)
+    getComputerChoice()
+    userChoice='userScissors'
+    rollIcons();
+    setTimeout(scissorsBtnFunction,2000)
 });
 
 cheatBtn.addEventListener("click",function(){
     disableButtons();
     styleReset();
-    setTimeout(cheatBtnFunction,500)
+    getComputerChoice();
+        if (compChoice==='compRock') {
+            userChoice='userPaper'
+        } else if (compChoice ==='compPaper') {
+            userChoice='userScissors'
+        } else if (compChoice === 'compScissors') {
+            userChoice='userRock'
+        } else {
+            console.log('error in cheat button')
+        }
+    rollIcons();
+    setTimeout(cheatBtnFunction,2000);
 });
 document.getElementById("clearStatsBtn").addEventListener("click",function(){
     styleReset();
     clearStats();
 });
-
-function sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-      currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
-  }
