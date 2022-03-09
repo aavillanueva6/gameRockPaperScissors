@@ -37,10 +37,10 @@ function clearStats () {
     tieCount = 0;
     gameCount = 0;
     document.getElementById("clearStatsBtn").style.display='none';
-    document.getElementById("gamesWon").value = 0;
-    document.getElementById("gamesLost").value = 0;
-    document.getElementById("gamesTied").value = 0;
-    document.getElementById("gamesPlayed").value = 0;
+    document.getElementById("gamesWon").innerHTML = 0;
+    document.getElementById("gamesLost").innerHTML = 0;
+    document.getElementById("gamesTied").innerHTML = 0;
+    document.getElementById("gamesPlayed").innerHTML = 0;
     document.getElementById("cheatMsg").style.display='none';
 }
 
@@ -142,8 +142,8 @@ function winResult () {
     gameCount++;
     console.log(`wins = ${winCount}`)
     console.log(`games = ${gameCount}`)
-    document.getElementById("gamesWon").value = winCount;
-    document.getElementById("gamesPlayed").value = gameCount;
+    document.getElementById("gamesWon").innerHTML = winCount;
+    document.getElementById("gamesPlayed").innerHTML = gameCount;
 
 }
 function loseResult () {
@@ -152,8 +152,8 @@ function loseResult () {
     gameCount++;
     console.log(`losses = ${loseCount}`)
     console.log(`games = ${gameCount}`)
-    document.getElementById("gamesLost").value = loseCount;
-    document.getElementById("gamesPlayed").value = gameCount;
+    document.getElementById("gamesLost").innerHTML = loseCount;
+    document.getElementById("gamesPlayed").innerHTML = gameCount;
 }
 function tieResult () {
     document.getElementById("tie").style.display='block';
@@ -161,8 +161,8 @@ function tieResult () {
     gameCount++;
     console.log(`ties = ${tieCount}`)
     console.log(`games = ${gameCount}`)
-    document.getElementById("gamesTied").value = tieCount;
-    document.getElementById("gamesPlayed").value = gameCount;
+    document.getElementById("gamesTied").innerHTML = tieCount;
+    document.getElementById("gamesPlayed").innerHTML = gameCount;
 }
 
 // getComputerChoice randomly assigns a choice to the compChoice variable.  It uses Math.floor(Math.random()) as a way to define a random number and keys the choice off of the random number that is picked.

@@ -1,182 +1,233 @@
 body {
-    position:relative;
-    min-height: 100vh;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  position: relative;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin: 0;
 }
-#cheatMsg{
-    display:none;
+h1 {
+  margin: 0px;
+  padding-top: 20px;
 }
-#winner, #loser, #tie #cheatMsg {
-    margin-left: auto;
-    margin-right: auto;
+#cheatMsg {
+  display: none;
 }
+
+#winner,
+#loser,
+#tie #cheatMsg {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .actionButtons {
-    flex: 0 0 91px;
+  flex: 0 0 91px;
 }
+
 #resetButtonContainer {
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
+
 #resetBtn {
-    display: none;
-
-} 
-#clearStatsBtn{
-    display:none;
+  display: none;
 }
+
+#clearStatsBtn {
+  display: none;
+}
+
 #sneakyCheatBtn {
-    opacity:0;
-    position:fixed;
-    bottom:0;
-    left:0;
-    height:50px;
-    width: 75px;
-    z-index:5;
+  opacity: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  width: 75px;
+  z-index: 5;
 }
-.titleText{
-    text-align: center;
-}
-.rpsSelection{
-    opacity:0;
-    font-size:1.5em;
-    position:absolute;
-    left:49px;
 
+.titleText {
+  text-align: center;
 }
+
+.rpsSelection {
+  opacity: 0;
+  font-size: 1.5em;
+  position: absolute;
+  left: 49px;
+}
+
 .result {
-    display:none;
+  display: none;
 }
+
 .choiceBlock {
-    width:150px;
-    position:relative;
+  width: 150px;
+  position: relative;
 }
-#resultText{
-    width:200px;
-    text-align: center;
-    margin:0 5px;
+
+#resultText {
+  width: 200px;
+  text-align: center;
+  margin: 0 5px;
 }
+
 #choices {
-    display:flex;
-    justify-content: space-around;
-    min-height: 105px;
-    text-align:center;
+  display: flex;
+  justify-content: space-around;
+  min-height: 105px;
+  text-align: center;
 }
+
 #userSelectionButtons {
-    margin: 5px auto;
-    display:flex;
-    justify-content: space-around;
+  margin: 5px auto;
+  display: flex;
+  justify-content: space-around;
 }
+
 .gameDataTextBox {
-    resize:none;
-    border-radius:5px;
-    text-align: center;
-    width:70px;
-    margin:5px;
+  resize: none;
+  border-radius: 5px;
+  text-align: center;
+  width: 70px;
+  margin: 5px;
 }
+
 .buttonContainer {
-    display:block;
-    margin: 5px auto;
-    height:31px;
+  display: block;
+  margin: 5px auto;
+  height: 31px;
 }
 
 #statBlock {
-    margin:5px auto;
-    display:flex;
-    flex-direction: column;
+  margin: 5px auto;
+  display: flex;
+  flex-direction: column;
 }
+
 table {
-    margin:auto;
+  margin: auto;
 }
-/* next two styles are a test to work on the animation that I am trying to gee to work. */
+
+#statTable {
+  text-align: center;
+}
+#statTable tr th {
+  width: 91px;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+#cheatMsgContainer {
+  text-align: center;
+  min-height: 38px;
+  width: 364px;
+  margin: 0 auto;
+}
+/** The next eight styles are for the animation that displays when a roll is made.  
+*   The bounce animation is used to make the container with the emoji inside of it appear to bounce.  
+*   The iconDisplay animation is used to display and then hide the icon that it is applied to. 
+*   The iconDisplayChoice animation is used to show the icon that was picked, it does not re-hide the icon at the end of it's cycle.
+*/
 .bounceBox {
-    animation-name: bounce;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-    animation-delay: 0s;
+  animation-name: bounce;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
 }
+
 @keyframes bounce {
-    0% {
-      transform: translate(0, -10px);
-    }
-    14.28% {
-        transform: translate(0, 0px);
-    }
-    28.56% {
-        transform: translate(0, -10px);
-    }
-    42.85% {
-        transform: translate(0, 0px);
-    } 
-    57.14% {
-        transform: translate(0, -10px);
-    }
-    71.42% {
-        transform: translate(0, 0px);
-    }
-    85.71% {
-        transform: translate(0, -10px);
-    }
-    100% {
-      transform: translate(0, 0px);
-    }
+  0% {
+    transform: translate(0, -10px);
   }
+  14.28% {
+    transform: translate(0, 0px);
+  }
+  28.56% {
+    transform: translate(0, -10px);
+  }
+  42.85% {
+    transform: translate(0, 0px);
+  }
+  57.14% {
+    transform: translate(0, -10px);
+  }
+  71.42% {
+    transform: translate(0, 0px);
+  }
+  85.71% {
+    transform: translate(0, -10px);
+  }
+  100% {
+    transform: translate(0, 0px);
+  }
+}
+
 .rollIconRock {
-    animation-name: iconDisplay;
-    animation-duration: 0.5711s;
-    animation-iteration-count: 1;
-    animation-delay: 0s;    
+  animation-name: iconDisplay;
+  animation-duration: 0.5711s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
 }
+
 @keyframes iconDisplay {
-    0% {
-        opacity:1;
-    }
-    99% {
-        opacity:1;
-    }
-    100% {
-        opacity:0;
-    }
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
+
 .rollIconPaper {
-    animation-name: iconDisplay;
-    animation-duration: 0.5711s;
-    animation-iteration-count: 1;
-    animation-delay: 0.5712s;    
+  animation-name: iconDisplay;
+  animation-duration: 0.5711s;
+  animation-iteration-count: 1;
+  animation-delay: 0.5712s;
 }
 
 .rollIconScissors {
-    animation-name: iconDisplay;
-    animation-duration: 0.5711s;
-    animation-iteration-count: 1;
-    animation-delay: 1.1424s;    
-}
-.rollIconChoice {
-    animation-name: iconDisplayChoice;
-    animation-duration: 0.2863s;
-    animation-iteration-count: 1;
-    animation-delay: 1.7136s;   
-}
-@keyframes iconDisplayChoice {
-    0% {
-        opacity:1;
-    }
-    99% {
-        opacity:1;
-    }
-    100% {
-        opacity:1;
-    }
+  animation-name: iconDisplay;
+  animation-duration: 0.5711s;
+  animation-iteration-count: 1;
+  animation-delay: 1.1424s;
 }
 
+.rollIconChoice {
+  animation-name: iconDisplayChoice;
+  animation-duration: 0.2863s;
+  animation-iteration-count: 1;
+  animation-delay: 1.7136s;
+}
+
+@keyframes iconDisplayChoice {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 #footerContainer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .footerText {
-    text-align: center;
+  text-align: center;
 }

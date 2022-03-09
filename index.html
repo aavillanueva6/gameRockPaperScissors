@@ -48,7 +48,7 @@
                 <section class="result" id="winner">You win!</section>
                 <section class="result" id="loser">You lose.</section>
                 <section class="result" id="tie">You tied.</section>
-                <section class="none" id="cheatMsg">But does it feel like a win when you get it by cheating?</section>
+                <!-- <section class="none" id="cheatMsg">But does it feel like a win when you get it by cheating?</section> -->
             </section>
             <section class="compChoice choiceBlock">
                 <p class="selectionText" >Computer</br>selected:</p>
@@ -67,51 +67,32 @@
                 <button class="actionButtons allButtons"id="clearStatsBtn">Clear Stats</button>
             </div>
             <table>
-                <tr>
-                    <th>Wins</th>
-                    <th>Losses</th>
-                    <th>Ties</th>
-                    <th>Total Games</th>
-                </tr>
-                <tr>
-                    <td class="gameData">
-                        <textarea
-                        class="gameDataTextBox"
-                        readonly
-                        id="gamesWon"
-                        placeholder=0
-                        aria-label="Number of games won"
-                      ></textarea>
-                    </td>
-                    <td class="gameData">
-                        <textarea
-                        class="gameDataTextBox"
-                        readonly
-                        id="gamesLost"
-                        placeholder=0
-                        aria-label="Number of games lost"
-                      ></textarea>
-                    </td>
-                    <td class="gameData">
-                        <textarea
-                        class="gameDataTextBox"
-                        readonly
-                        id="gamesTied"
-                        placeholder=0
-                        aria-label="Number of games tied"
-                      ></textarea>
-                    </td>
-                    <td class="gameData">
-                        <textarea
-                        class="gameDataTextBox"
-                        readonly
-                        id="gamesPlayed"
-                        placeholder=0
-                        aria-label="Number of games Played"
-                      ></textarea>
-                    </td>
-                </tr>
+                <tbody id="statTable">
+                    <tr>
+                        <th>Wins</th>
+                        <th>Losses</th>
+                        <th>Ties</th>
+                        <th>Total Games</th>
+                    </tr>
+                    <tr>
+                        <td class="gameData" id="gamesWon">
+                            0
+                        </td>
+                        <td class="gameData" id="gamesLost">
+                            0
+                        </td>
+                        <td class="gameData" id="gamesTied">
+                            0
+                        </td>
+                        <td class="gameData" id="gamesPlayed">
+                            0
+                        </td>
+                    </tr>
+                </tbody>
             </table>
+        </section>
+        <section id="cheatMsgContainer">
+            <section class="none" id="cheatMsg">But does it feel like a win when you get it by cheating?</section>
         </section>
         <button id="sneakyCheatBtn" class="allButtons">Cheat</button>
     </main>
