@@ -27,6 +27,8 @@ function styleReset() {
   document.getElementById("loser").style.display = "none";
   document.getElementById("winner").style.display = "none";
   document.getElementById("resetBtn").style.display = "none";
+  document.getElementById("cheatMsg").style.display = "none";
+  s;
 }
 
 // clearStats resets the count of wins, losses, ties and total games to zero, and hides the stat block
@@ -40,7 +42,8 @@ function clearStats() {
   document.getElementById("gamesLost").textContent = 0;
   document.getElementById("gamesTied").textContent = 0;
   document.getElementById("gamesPlayed").textContent = 0;
-  document.getElementById("cheatMsg").style.display = "none";
+  // document.getElementById("cheatMsg").style.display = "none";
+  document.getElementById("cheatAsterisk").style.display = "none";
 }
 
 // getResult checks the user choice against the computer choice and determines the result
@@ -189,6 +192,7 @@ function cheatBtnFunction() {
   document.getElementById("resetBtn").style.display = "inline";
   document.getElementById("clearStatsBtn").style.display = "inline";
   document.getElementById("cheatMsg").style.display = "block";
+  document.getElementById("cheatAsterisk").style.display = "inline";
   console.log("userChoice:");
   console.log(userChoice);
   console.log("compChoice:");
