@@ -28,7 +28,6 @@ function styleReset() {
   document.getElementById("winner").style.display = "none";
   document.getElementById("resetBtn").style.display = "none";
   document.getElementById("cheatMsg").style.display = "none";
-  s;
 }
 
 // clearStats resets the count of wins, losses, ties and total games to zero, and hides the stat block
